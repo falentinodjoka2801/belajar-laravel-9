@@ -3,6 +3,8 @@
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\Mahasiswa;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,3 +61,11 @@ Route::post('/input/hello', [InputController::class, 'hello']);
 Route::post('/input/hello/first', [InputController::class, 'helloFirstName']);
 
 Route::post('/file/upload', [FileController::class, 'upload']);
+
+#Mahasiswa
+Route::get('/mahasiswa/add', [Mahasiswa::class, 'add']);
+Route::post('/mahasiswa/save', [Mahasiswa::class, 'save'])->name('mahasiswa.save');
+
+Route::prefix('ajax')->namespace('App\Http\Controllers')->group(function(){
+    Route::get('konsentrasi-prodi/{kodeProdi}', 'AJAX@konsentrasiProdi');
+});
