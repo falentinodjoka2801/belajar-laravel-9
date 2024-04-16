@@ -11,7 +11,7 @@ class ConfigurationTest extends TestCase{
         $authorFirstName    =   config('contoh.name.first');
         $authorLastName     =   config('contoh.name.last');
 
-        self::assertEquals('Falentino', $authorFirstName);
-        self::assertEquals('Djoka', $authorLastName);
+        self::assertEquals('FalentinoDjoka', $authorFirstName);
+        self::assertEquals('DjokaFalentino', $authorLastName);
     }
 }
