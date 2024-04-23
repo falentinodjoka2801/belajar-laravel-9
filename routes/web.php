@@ -83,3 +83,7 @@ Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello']
 Route::get('/middleware/api', function(){
     return 'OK';
 })->middleware(['contoh']);
+
+Route::get('/middleware/group', function(){
+    return 'GROUP';
+})->middleware(['pzn']);
