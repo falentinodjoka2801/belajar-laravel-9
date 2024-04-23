@@ -5,7 +5,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\Mahasiswa;
-
+use App\Http\Controllers\RedirectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,3 +74,8 @@ Route::prefix('ajax')->namespace('App\Http\Controllers')->group(function(){
 Route::get('/cookie/set', [CookieController::class, 'createCookie']);
 Route::get('/cookie/get', [CookieController::class, 'getCookie']);
 Route::get('/cookie/clear', [CookieController::class, 'clearCookie']);
+
+Route::get('/redirect/from', [RedirectController::class, 'redirectFrom']);
+Route::get('/redirect/to', [RedirectController::class, 'redirectTo']);
+Route::get('/redirect/name', [RedirectController::class, 'redirectName']);
+Route::get('/redirect/name/{name}', [RedirectController::class, 'redirectHello'])->name('redirect-hello');
