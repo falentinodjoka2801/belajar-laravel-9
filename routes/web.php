@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CookieController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
@@ -69,3 +70,7 @@ Route::post('/mahasiswa/save', [Mahasiswa::class, 'save'])->name('mahasiswa.save
 Route::prefix('ajax')->namespace('App\Http\Controllers')->group(function(){
     Route::get('konsentrasi-prodi/{kodeProdi}', 'AJAX@konsentrasiProdi');
 });
+
+Route::get('/cookie/set', [CookieController::class, 'createCookie']);
+Route::get('/cookie/get', [CookieController::class, 'getCookie']);
+Route::get('/cookie/clear', [CookieController::class, 'clearCookie']);
