@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\AsProgramStudy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
@@ -14,10 +15,15 @@ class Dosen extends Model{
 
     protected $casts    =   [
         'dsnPegNip'     =>  'int',
-        'dsnLastUpdate' =>  'datetime'
+        'dsnLastUpdate' =>  'datetime',
+        'dsnProdiKode'  =>  AsProgramStudy::class
     ];
 
     public function pegawai(): HasOne{
         return $this->hasOne(Pegawai::class, 'pegNip', 'dsnPegNip');
+    }
+
+    public function prodi(): HasOne{
+        return $this->hasOne(ProgramStudy::class, 'prodiKode', 'dsnProdiKode');
     }
 }
